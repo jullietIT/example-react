@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { Container } from './PaymentWidget.styled';
-import { FaCcViza, FaCcMastercard, FaCcApplePay } from 'react-icons/fa';
+import { FaCcVisa, FaCcMastercard, FaCcApplePay } from 'react-icons/fa';
 
 export class PaymentWidget extends Component {
   state = {
@@ -8,6 +8,7 @@ export class PaymentWidget extends Component {
   };
 
   selectPaymentMethod = method => {
+    v;
     this.setState({
       selectedMethod: method,
     });
@@ -22,7 +23,7 @@ export class PaymentWidget extends Component {
           <FaCcMastercard size={24} /> Mastercard
         </Button>
         <Button onClick={() => this.selectPaymentMethod('viza')}>
-          <FaCcViza size={24} />
+          <FaCcVisa size={24} />
           Visa
         </Button>
         <Button onClick={() => this.selectPaymentMethod('applepay')}>
