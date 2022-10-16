@@ -1,38 +1,28 @@
-import { Component } from 'react';
 import { FaCcVisa, FaCcMastercard, FaCcApplePay } from 'react-icons/fa';
 import { Container, Button } from './PaymentMetod.styled.js';
+import { paymentMethods } from 'constants';
 
-const methods = Object.freeze({
-  //замороженый объект
-  mastercard: 'mastercard',
-  visa: 'visa',
-  applepay: 'applepay',
-});
-
-export const PaymentsssMetods = () => {
-    return (
-        <Container>
-            <Button
-                selected={selectedMethod === methods.mastercard}
-                onClick={this.selectPaymentMethod('mastercard')}
-            >
-                <FaCcMastercard size={24} /> Mastercard
-            </Button>
-            <Button
-                selected={selectedMethod === methods.visa}
-                onClick={this.selectPaymentMethod('visa')}
-            >
-                <FaCcVisa size={24} />
-                Visa
-            </Button>
-            <Button
-                selected={selectedMethod === methods.applepay}
-                onClick={this.selectPaymentMethod('applepay')}
-            >
-                <FaCcApplePay size={24} />
-                Applepay{' '}
-            </Button>
-        </Container>
-    );
-};
+export const PaymentMethods = ({ selected, onSelect }) => {
+  return (
+    <Container>
+      <Button
+        selected={selected === paymentMethods.mastercard}
+        onClick={() => onSelect(paymentMethods.mastercard)}
+      >
+        <FaCcMastercard size={24} /> Mastercard
+      </Button>
+      <Button
+        selected={selected === paymentMethods.visa}
+        onClick={() => onSelect(paymentMethods.visa)}
+      >
+        <FaCcVisa size={24} /> Visa
+      </Button>
+      <Button
+        selected={selected === paymentMethods.applepay}
+        onClick={() => onSelect(paymentMethods.applepay)}
+      >
+        <FaCcApplePay size={24} /> Apple Pay
+      </Button>
+    </Container>
+  );
 };
